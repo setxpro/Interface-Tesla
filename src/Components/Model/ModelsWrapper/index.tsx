@@ -36,7 +36,7 @@ const ModelsWrapper = ({children}:{children: JSX.Element}) => {
 
                 <OverlaysRoot>
                     {registeredModels.map(item => (
-                        <ModelOverlay key={item.modelName}>{item.overlayNode}</ModelOverlay>
+                        <ModelOverlay key={item.modelName} model={item}>{item.overlayNode}</ModelOverlay>
                     ))}
                 </OverlaysRoot>
 
