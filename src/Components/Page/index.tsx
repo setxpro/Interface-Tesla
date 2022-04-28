@@ -9,7 +9,7 @@ const Page: React.FC = () => {
     <Container>
       <ModelsWrapper>   
         <div>
-            {[
+              {[
                 'Model One',
                 'Model Two',
                 'Model Three',
