@@ -1,6 +1,40 @@
 
+import { useCallback, useRef, useState } from 'react';
+import ModelsContext, { CarModel } from '../ModelsContext';
 import { Container } from './styles';
 
-const ModelsWrapper = ({children}:{children: JSX.Element}) => <Container>{children}</Container>
+const ModelsWrapper = ({children}:{children: JSX.Element}) => {
 
-export default ModelsWrapper;
+    const wrapperRef = useRef<HTMLDivElement>(null)
+
+    const [registeredModels, setRegisteredModels] = useState<CarModel[]>([]);
+
+    // Registrar um modelo dentro do meu State...
+    const registerModel = useCallback((model: CarModel) => {
+        setRegisteredModels(state => [...state, model])
+        // ...state -> pega todos os modelos já registrados e registra um novo
+    }, [])
+
+    // Remover um modelo
+    const unregisterModel = useCallback((modelName: string) => {
+        setRegisteredModels(state => state.filter(model => model.modelName !== modelName));
+    }, [])
+
+    const getModelByName = useCallback((modelName: string) => {
+       return registeredModels.find(item => item.modelName === modelName) || null
+    }, [registeredModels])
+
+    return (
+        <ModelsContext.Provider value={{
+            wrapperRef, 
+            registeredModels,
+            registerModel,
+            unregisterModel,
+            getModelByName
+        }}>
+            <Container ref={wrapperRef}>{children}</Container>
+        </ModelsContext.Provider>
+    )
+}
+
+export default ModelsWrapper;   
