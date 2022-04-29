@@ -2,7 +2,8 @@ import React from 'react';
 import { ModelsSection, ModelsWrapper } from '../Model';
 import DefaultOverlayContent from '../DefaultOverlayContent';
 
-import { Container } from './styles';
+import { Container, Spacer } from './styles';
+import UniqueOverlay from '../UniqueOverlay';
 
 const Page: React.FC = () => {
   return (
@@ -10,13 +11,13 @@ const Page: React.FC = () => {
       <ModelsWrapper>   
         <div>
               {[
-                'Model One',
-                'Model Two',
-                'Model Three',
-                'Model Four',
-                'Model Five',
-                'Model Six',
-                'Model Seven',
+                'Model 3',
+                'Model Y',
+                'Model S',
+                'Model X',
+                'Solar Panels',
+                'Solar Roof',
+                'Accessories',
             ].map(modelName => (
                 <ModelsSection
                 key={modelName}
@@ -28,10 +29,12 @@ const Page: React.FC = () => {
                         description="Order Online for Delivery"
                     />
                 }
-            />
+                />
             ))}
             
         </div>
+          <Spacer/>
+        <UniqueOverlay/>
       </ModelsWrapper>
     </Container>
   );

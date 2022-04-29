@@ -1,9 +1,9 @@
-import { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import ModelsContext, { CarModel } from '../ModelsContext';
 import { Container, OverlaysRoot } from './styles';
 import ModelOverlay from '../ModelOverlay';
 
-const ModelsWrapper = ({children}:{children: JSX.Element}) => {
+const ModelsWrapper = ({children}:{children: React.ReactNode}) => {
 
     const wrapperRef = useRef<HTMLDivElement>(null)
 

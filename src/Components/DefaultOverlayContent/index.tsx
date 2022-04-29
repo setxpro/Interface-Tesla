@@ -3,9 +3,8 @@ import React from 'react';
 import { Container, Heading, Buttons } from './styles';
 
 interface Props {
-    label: string;
-    description: string;
-
+    label: string | undefined;
+    description: string | undefined;
 }
 
 const DefaultOverlayContent: React.FC<Props> = ({label, description}) => {
